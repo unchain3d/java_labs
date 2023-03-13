@@ -11,8 +11,8 @@ public class Main {
         BoardGame chess = new BoardGame();
         BoardGame monopoly = new BoardGame("Monopoly", 2, 5, new LinkedList<>());
 
-        monopoly.addPlayer(new Player("Ivan", "Ivan228", 14));
-        monopoly.addPlayer(new Player("X", "X", 20));
+        monopoly.addPlayer(new Player("Ivan", "Iv4n", 14));
+        monopoly.addPlayer(new Player("Daniel", "xXx", 20));
 
         List<BoardGame> games = new LinkedList<>();
         games.add(chess);

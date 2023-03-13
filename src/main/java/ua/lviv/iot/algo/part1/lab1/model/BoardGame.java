@@ -6,11 +6,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @ToString
-
+@NoArgsConstructor
+@AllArgsConstructor
 public class BoardGame {
     private String title;
     private int minPlayers;
@@ -37,14 +36,5 @@ public class BoardGame {
     public boolean canPlay() {
         int size = currentPlayers.size();
         return size >= minPlayers && size <= maxPlayers;
-    }
-
-    @Override
-    public String toString() {
-        return "title: " + title + "\n" +
-                "minPlayers: " + minPlayers + "\n" +
-                "maxPlayers: " + maxPlayers + "\n" +
-                "currentPlayers: " + currentPlayers.size() + "\n" +
-                "canPlay: " + canPlay() + "\n";
     }
 }
