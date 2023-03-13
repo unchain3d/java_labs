@@ -1,7 +1,15 @@
 package ua.lviv.iot.algo.part1.lab1.model;
 
+import lombok.*;
+
 import java.util.LinkedList;
 import java.util.List;
+
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@ToString
 
 public class BoardGame {
     private String title;
@@ -16,17 +24,6 @@ public class BoardGame {
             instance = new BoardGame("Static Game", 0, 0, new LinkedList<>());
         }
         return instance;
-    }
-
-    public BoardGame() {
-        this(null, 5, 10, new LinkedList<>());
-    }
-
-    public BoardGame(String title, int minPlayers, int maxPlayers, List<Player> players) {
-        this.title = title;
-        this.minPlayers = minPlayers;
-        this.maxPlayers = maxPlayers;
-        this.currentPlayers = players;
     }
 
     public void addPlayer(Player player) {
@@ -49,37 +46,5 @@ public class BoardGame {
                 "maxPlayers: " + maxPlayers + "\n" +
                 "currentPlayers: " + currentPlayers.size() + "\n" +
                 "canPlay: " + canPlay() + "\n";
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getMinPlayers() {
-        return minPlayers;
-    }
-
-    public void setMinPlayers(int minPlayers) {
-        this.minPlayers = minPlayers;
-    }
-
-    public int getMaxPlayers() {
-        return maxPlayers;
-    }
-
-    public void setMaxPlayers(int maxPlayers) {
-        this.maxPlayers = maxPlayers;
-    }
-
-    public List<Player> getCurrentPlayers() {
-        return currentPlayers;
-    }
-
-    public void setCurrentPlayers(List<Player> currentPlayers) {
-        this.currentPlayers = currentPlayers;
     }
 }
