@@ -1,28 +1,45 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import ua.lviv.iot.algo.part1.lab1.model.BoardGame;
-import ua.lviv.iot.algo.part1.lab1.model.Player;
+import ua.lviv.iot.algo.part1.lab1.manager.GameManager;
+import ua.lviv.iot.algo.part1.lab1.manager.GameManagerImpl;
+import ua.lviv.iot.algo.part1.lab1.model.*;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        BoardGame chess = new BoardGame();
-        BoardGame monopoly = new BoardGame("Monopoly", 2, 5, new LinkedList<>());
+        BoardGame chess = new BoardGame("Chess", LocalDate.of(2002, Month.APRIL, 2),
+                new LinkedList<>(), "A", 2, 5);
+        BoardGame monopoly = new BoardGame("Monopoly", LocalDate.of(2002, Month.APRIL, 2),
+                new LinkedList<>(), "S", 2, 5);
+//        CardGame durak = new CardGame();
+//        CardGame kosynka = new CardGame();
+//        ClassicBoardGame powerGrid = new ClassicBoardGame();
+//        ClassicBoardGame go = new ClassicBoardGame();
 
-        monopoly.addPlayer(new Player("Ivan", "Iv4n", 14));
-        monopoly.addPlayer(new Player("Daniel", "xXx", 20));
+        monopoly.connectPlayer(new Player("Ivan", "Iv4n", 14));
+        monopoly.connectPlayer(new Player("Daniel", "xXx", 20));
 
-        List<BoardGame> games = new LinkedList<>();
-        games.add(chess);
-        games.add(monopoly);
-        games.add(BoardGame.getInstance());
-        games.add(BoardGame.getInstance());
+        GameManager manager = new GameManagerImpl(new LinkedList<>());
+        manager.addGame(chess);
+        manager.addGame(monopoly);
 
-        for (int i = 0; i < games.size(); i++) {
-            System.out.println(games.get(i));
+        List<Game> filtered = manager.findAllWithPublisher("S");
+        System.out.println("Publisher S:");
+        for (Game game : filtered) {
+            System.out.println(game);
         }
+
+        System.out.println();
+        System.out.println("Year 2000:");
+        manager.findAllWithReleaseDateLaterThan(LocalDate.of(2000, 1, 1));
+
+        System.out.println();
+        System.out.println("All:");
+        manager.showGames();
     }
 }
 

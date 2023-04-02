@@ -7,9 +7,10 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Player {
+public class Player extends Object {
     private String name;
     private String nickname;
     private int age;
 
 }
+
