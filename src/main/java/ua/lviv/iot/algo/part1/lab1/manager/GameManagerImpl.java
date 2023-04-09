@@ -31,8 +31,9 @@ public class GameManagerImpl implements GameManager {
 
     @Override
     public List<Game> findAllWithPublisher(String publisher) {
-        return games.stream()
-                .filter(game -> game.getPublisher().equals(publisher))
+        Stream<Game> gameStream = games.stream()
+                .filter(game -> game.getPublisher().equals(publisher));
+        return gameStream
                 .collect(Collectors.toList());
     }
 
