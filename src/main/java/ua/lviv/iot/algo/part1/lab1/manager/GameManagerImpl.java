@@ -1,8 +1,6 @@
 package ua.lviv.iot.algo.part1.lab1.manager;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import ua.lviv.iot.algo.part1.lab1.model.Game;
 
 import java.time.LocalDate;
@@ -10,9 +8,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
+@Getter
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
 public class GameManagerImpl implements GameManager {
     private List<Game> games;
