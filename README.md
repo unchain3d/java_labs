@@ -1,2 +1,2 @@
-# Lab1Definitely
+# java_labs
  
